@@ -1,6 +1,6 @@
 function sudoku(puzzle) {
 	// Set up the object
-	var hash = {},miss = 1, vertBox, horBox;
+	var hash = {},miss = 1, vertBox, horBox, total, value;
 	for (var i = 0; i < puzzle.length; i++) {
 		hash[i] = {};
 		for (var x = 0; x < puzzle.length; x++) {
@@ -49,7 +49,7 @@ function sudoku(puzzle) {
 							}
 						}
 					}
-					var total = 0,value;
+					total = 0
 					Object.keys(hash[i][x]['impossible']).forEach(function(key,index) {
 					    if (hash[i][x]['impossible'][key]) {
 					    	total++;
