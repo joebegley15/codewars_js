@@ -1,6 +1,6 @@
 function sudoku(puzzle) {
 	// Set up the object
-	var hash = {},miss = 1, vertBox, horBox, total, value;
+	var hash = {},miss = 1, vertBox, horBox, total, value,lastMiss;
 	for (var i = 0; i < puzzle.length; i++) {
 		hash[i] = {};
 		for (var x = 0; x < puzzle.length; x++) {
@@ -65,6 +65,11 @@ function sudoku(puzzle) {
 				}
 			}
 		}
+		if (lastMiss == miss) {
+			return 'Unsolvabe';
+		} else {
+			lastMiss = miss;
+		}
 	}
 	return puzzle;
 }
@@ -76,9 +81,9 @@ var puzzle = [
       [0,9,8,0,0,0,0,6,0],
       [8,0,0,0,6,0,0,0,3],
       [4,0,0,8,0,3,0,0,1],
-      [7,0,0,0,2,0,0,0,6],
+      [7,0,0,0,2,0,0,0,0],
       [0,6,0,0,0,0,2,8,0],
-      [0,0,0,4,1,9,0,0,5],
+      [0,0,0,4,1,9,0,0,0],
       [0,0,0,0,8,0,0,7,9]];
 
 
