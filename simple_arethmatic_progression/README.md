@@ -1,0 +1,1 @@
+Solution to: https://www.codewars.com/kata/simple-arithmetic-progression/train/javascript
