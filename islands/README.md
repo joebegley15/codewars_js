@@ -1,0 +1,1 @@
+https://www.codewars.com/kata/island-count/train/javascript
