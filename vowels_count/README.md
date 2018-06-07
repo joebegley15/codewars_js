@@ -1,1 +1,1 @@
-https://github.com/joebegley15?tab=overview&from=2018-05-01&to=2018-05-31
+https://www.codewars.com/kata/vowel-count/train/javascript/5b1885697500bec62c0000f3

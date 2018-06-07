@@ -7,3 +7,7 @@ function getCount(str) {
   }
   return vowelsCount;
 }
+
+function getCountQuick(str){
+	var vowelsCount = (str.match(/a|e|i|o|u/gi) || []).length;
+}
