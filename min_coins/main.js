@@ -36,7 +36,7 @@ function minCoins(value) {
 			return parseFloat(value.substring(0, value.length - 1)) * 100;
 		}
 		if (/^(£\d+\.\d+p|£\d+p)$/.test(value)){
-			value = value.slice(1, -1)
+			value = value.slice(0, -1)
 			return parseFloat(value * 100);
 		}
 	}
