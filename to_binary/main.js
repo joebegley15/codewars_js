@@ -16,4 +16,6 @@ function toBinary(n){
   return parseInt(str);
 }
 
-console.log(toBinary(4));
+for (var n = 7; n < 700; n+= 7) {
+  console.log(toBinary(n));
+}
