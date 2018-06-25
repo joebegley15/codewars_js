@@ -1,0 +1,1 @@
+https://www.codewars.com/kata/convert-string-to-camel-case/train/javascript
