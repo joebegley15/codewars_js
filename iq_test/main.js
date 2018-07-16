@@ -4,7 +4,7 @@ function iqTest(numbers){
 	for (var i = 0; i < numbers.length; i++) {
 		numbers[i] % 2 ? odd++ : even++;
 	}
-	odd > even ? v = 0 : v = 1;
+	v = odd > even ? 0 : 1;
 	for (var i = 0; i < numbers.length; i++) {
 		if (numbers[i] % 2 == v) {return i+1}
 	}
