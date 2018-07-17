@@ -1,6 +1,6 @@
 function iqTest(numbers){
 	let odd = 0, even = 0, v;
-	numbers = numbers.split(' ')
+	numbers = numbers.split(' ');
 	for (var i = 0; i < numbers.length; i++) {
 		numbers[i] % 2 ? odd++ : even++;
 	}
