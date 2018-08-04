@@ -1,3 +1,1 @@
-function makeUpperCase(str) {
-  return str.toUpperCase();
-}
+const makeUpperCase = s => s.toUpperCase();
