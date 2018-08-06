@@ -1,0 +1,1 @@
+var numberToString = num => ''+num;
