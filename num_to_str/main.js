@@ -1,1 +1,1 @@
-var numberToString = num => ''+num;
+var numberToString = num => String(number);
