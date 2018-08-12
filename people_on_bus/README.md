@@ -1,0 +1,1 @@
+https://www.codewars.com/kata/number-of-people-in-the-bus/train/javascript
