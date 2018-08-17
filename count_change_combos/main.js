@@ -37,5 +37,6 @@ function numberOfCombos(value, coins) {
 	return v;
 }
 
+console.log(sortNumber);
 console.log(listChange(10, [5,1,10]));
 console.log(numberOfCombos(10, [5,1,10]));

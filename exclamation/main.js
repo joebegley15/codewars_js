@@ -1,3 +1,4 @@
-function replace(s){
-  return s.replace(/a|e|i|o|u/gi,'!');
-}
+const replace = s => s.replace(/a|e|i|o|u/gi,'!');
+
+
+console.log(replace('Fist'));
