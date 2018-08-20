@@ -1,5 +1,5 @@
 // One line
-const sumMix = (arr, sum=0) => arr.map(v => parseInt(v)).reduce((a,b)=>a+b);
+const sumMixOne = (arr,sum=0)=> arr.reduce((sum,current)=>sum+parseInt(current))
 // Multi - Line
 function sumMix(arr){
   let sum = 0;
@@ -8,3 +8,5 @@ function sumMix(arr){
   })
   return sum;
 } 
+
+console.log(sumMixOne([1,'2',3]));
