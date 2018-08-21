@@ -6,7 +6,7 @@ function sumMixedArr(arr) {
 	return sum;
 }
 
-const sumMixedOneLine = (arr,sum=0) => arr.map(element => parseInt(element)).reduce((sum,element) => sum + element);
+const sumMixedOneLine = (arr,sum=0) => arr.reduce((sum,element) => sum + parseInt(element));
 
 console.log(sumMixedArr([1,'2',3]));
 console.log(sumMixedOneLine([1,'2',3]));
