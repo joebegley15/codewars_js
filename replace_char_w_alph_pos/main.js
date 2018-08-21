@@ -9,3 +9,5 @@ function alphabetPosition(text) {
   }
   return arr.join(' ');
 }
+
+console.log(alphabetPosition('text'));
