@@ -7,5 +7,8 @@ function fib(num) {
     arr.push(arr[i] + arr[i - 1]);
     i++;
   }
+  console.log(arr);
   return arr[i];
 }
+
+console.log(fib(3));
