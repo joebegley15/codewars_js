@@ -1,0 +1,1 @@
+https://www.codewars.com/kata/simple-fun-number-338-the-sum-of-prime-distance/train/javascript
