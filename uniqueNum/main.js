@@ -1,22 +1,12 @@
-Object.size = function(obj) {
-    var size = 0, key;
-    for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-    }
-    return size;
-};
-
 function findUniq(arr) {
-  console.log(arr);
-  const hash = {}
-  let returnMe;
+  if (arr.length == 1) {
+    return arr[0];
+  }
+  let hash = {};
   for (var i = 0; i < arr.length; i++) {
-    hash[arr[i]] = hash[arr[i]] + 1 || 0;
-    console.log('-',arr[i],hash[arr[i]]);
-    if (hash[arr[i]] == 0 && Object.size(hash) == 2) {
-      return arr[i]
-    }
+    hash[arr[i]] = hash[arr[i]] + 1 || 1;
+    if (hash[arr[i]] > 1 && Object.keys(hash).length > 1) {
+      return + Object.keys(hash).reduce((current,x) => hash[x] == 1 ? x : current);
+    } 
   }
 }
-
-console.log(findUniq([ 0, 1, 1, 1, 1, 1, 1, 1 ]));
