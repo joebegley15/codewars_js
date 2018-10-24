@@ -1,4 +1,4 @@
-function inArray(arr1,arr2){
+const inArray = (arr1,arr2) => {
   let answers = [];
   arr1.some(el1=>{
     arr2.some(el2=>{
