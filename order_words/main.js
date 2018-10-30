@@ -5,7 +5,7 @@ const orderWord = s =>{
     if (arr.length < 2) return arr;
     let less = [], more = [], point = arr[0];
     for (let i = 1; i < arr.length; i++) {
-      if (arr[i].charCodeAt(0) < point.charCodeAt(0)) {
+      if (arr[i] < point) {
         less.push(arr[i]);
       } else {
         more.push(arr[i]);
