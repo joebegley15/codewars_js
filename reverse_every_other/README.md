@@ -1,0 +1,1 @@
+https://www.codewars.com/kata/58d76854024c72c3e20000de/solutions/javascript
