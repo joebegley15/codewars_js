@@ -1,0 +1,1 @@
+https://www.codewars.com/kata/scrabblemania/train/javascript
