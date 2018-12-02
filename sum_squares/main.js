@@ -1,0 +1,1 @@
+const sumSquares = arr => arr.reduce((sum, elem) => sum + (elem * elem), 0)
