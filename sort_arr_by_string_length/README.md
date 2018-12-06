@@ -1,0 +1,1 @@
+https://www.codewars.com/kata/sort-array-by-string-length/train/javascript
