@@ -12,3 +12,5 @@ function sortByLength (arr) {
   }
   return sortByLength(lilArr).concat(pointer, sortByLength(bigArr));
 };
+
+const sortByLength = arr => arr.sort((a,b) => a.length - b.length);
