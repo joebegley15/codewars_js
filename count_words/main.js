@@ -1,0 +1,1 @@
+const countWords = str => /[a-z].*?(\s|$)/.test(str) ? str.match(/[a-z]+/gi).length : 0;
