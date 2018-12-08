@@ -1,0 +1,1 @@
+https://www.codewars.com/kata/type-of-sum/train/javascript
