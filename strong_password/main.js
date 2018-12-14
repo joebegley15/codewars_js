@@ -1,0 +1,1 @@
+const makePassword = phrase => phrase.split(' ').map(char => char[0] === 'i' || char[0] === 'I' ? 1 : char[0] === 'o' || char[0] === 'O' ? 0 : char[0] === 'S' || char[0] === 's' ? 5 : char[0]).join('');
