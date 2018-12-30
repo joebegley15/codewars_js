@@ -1,1 +1,1 @@
-const TempleStrings = (obj, feature) => obj + ' are ' + feature;
+const TempleStrings = (obj, feature) => `${obj} are ${feature}`;
