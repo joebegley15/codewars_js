@@ -1,0 +1,1 @@
+const integrate = (c, e) => (c / (e + 1)) + 'x^' + (e + 1)
