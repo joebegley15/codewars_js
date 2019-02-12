@@ -1,1 +1,1 @@
-const removeExclamationMarks = s => s.match(/[^!]/gi).join('');
+const removeExclamationMarks = s => s.replace(/!/gi, '');
