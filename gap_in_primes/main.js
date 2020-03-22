@@ -9,16 +9,13 @@ function isPrime(n) {
 }
 
 function gap(gapVal, lowVal, highVal) {
-  const primes = [];
   let lastPrime;
   for (let i = lowVal; i <= highVal; i++) {
     if (isPrime(i)) {
-      console.log(i, primes);
-      lastPrime = primes[primes.length - 1];
       if (i - lastPrime === gapVal) {
         return [lastPrime, i];
       }
-      primes.push(i);
+      lastPrime = i;
     }
   }
   return null;
