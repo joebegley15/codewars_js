@@ -9,5 +9,19 @@ const isPrime = n => {
 };
 
 const backwardsPrime = (start, stop) => {
-  // your code here
+  const backwardsPrimes = [];
+  let reverse;
+  for (let i = start; i <= stop; i++) {
+    if (isPrime(i)) {
+      reverse = +i
+        .toString()
+        .split("")
+        .reverse()
+        .join("");
+      if (isPrime(reverse) && reverse !== i) {
+        backwardsPrimes.push(i);
+      }
+    }
+  }
+  return backwardsPrimes;
 };
