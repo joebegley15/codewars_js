@@ -1,7 +1,4 @@
 const isTriangle = (a, b, c) => {
-  const arr = [a, b, c].sort((a, b) => a - b);
-  if (arr[0] > 0 && arr[0] + arr[1] > arr[2]) {
-    return true;
-  }
-  return false;
+  const [x, y, z] = [a, b, c].sort((a, b) => a - b);
+  return x > 0 && x + y > z && x + z > y;
 };
