@@ -1,14 +1,11 @@
 const multiplicationTable = size => {
   const arr = [];
-  const horizontal = (n, size) => {
+  for (let i = 1; i <= size; i++) {
     const subArr = [];
-    for (let i = 1; i <= size; i++) {
+    for (let n = 1; n <= size; n++) {
       subArr.push(i * n);
     }
-    return subArr;
-  };
-  for (let i = 1; i <= size; i++) {
-    arr.push(horizontal(i, size));
+    arr.push(subArr);
   }
   return arr;
 };
