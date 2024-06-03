@@ -60,4 +60,4 @@ const nQueen = n => {
 }
 
 
-nQueen(3)
+nQueen(10)
