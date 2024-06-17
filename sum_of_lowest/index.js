@@ -17,9 +17,7 @@ function sumTwoSmallestNumbers(numbers) {
                 lowest[1] = n;
             }
         }
-        console.log(lowest);
     });
-    console.log(lowest);
     return lowest[0] + lowest[1];
 }
 
