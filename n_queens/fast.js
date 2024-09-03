@@ -1,63 +1,101 @@
-const conflicts = {
-    vertical: {},
-    diagnolDown: {},
-    diagnolUp: {}
-};
+let totalMoves = 0;
 
-const findConflicts = (board) => {
+const constructBoard = n => {
+    const arr = [];
+    for (let i = 0; i < n; i++) {
+        arr.push([]);
+        for (let y = 0; y < n; y++) {
+            arr[i].push(0);
+        }
+        arr[i][Math.floor(Math.random() * n)] = 1;
+    }
+    return arr;
+}
+
+const conflictCounter = board => {
+    let verticalConflicts = 0;
+    let mainDiagnolConflicts = 0;
+    let antiDiagnoalConflicts = 0;
+    // vertical
     for (let i = 0; i < board.length; i++) {
-        let queens = 0;
+        let count = 0;
         for (let y = 0; y < board.length; y++) {
-            if (board[y][i]) {
-                queens++;
+            if (board[y][i] === 1) {
+                count++;
             }
         }
-        conflicts["vertical"][i] = queens;
+        if (count > 1) {
+            verticalConflicts++;
+        }
     }
+    // mainDiagnolConflicts
     for (let i = 0; i < board.length; i++) {
-        let queens = 0;
-        let otherQueens = 0;
+        let countUp = 0;
+        let countDown = 0;
         for (let y = 0; y < board.length - i; y++) {
-            if (board[i + y][y]) {
-                queens++;
+            if (board[y][y + i] === 1) {
+                countUp++
             }
-            if (board[y][i + y]) {
-                otherQueens++;
-            }
-        }
-        conflicts["diagnolDown"][`${i},0`] = queens;
-        conflicts["diagnolDown"][`0,${i}`] = otherQueens;
-    }
-    for (let i = 0; i < board.length; i++) {
-        let queens = 0;
-        let otherQueens = 0;
-        for (let y = 0; y <= board.length - 1 - i; y++) {
-            if (board[board.length - 1 - y - i][y]) {
-                queens++;
-            }
-            if (board[board.length - 1 - y][y + i]) {
-                otherQueens++;
+            if (i > 0 && board[y + i][y] === 1) {
+                countDown++;
             }
         }
-        conflicts["diagnolUp"][`${board.length - 1 - i},0`] = queens;
-        conflicts["diagnolUp"][`${board.length - 1},${board.length - 1 - i}`] = otherQueens;
+        if (countUp > 1) {
+            mainDiagnolConflicts++;
+        }
+        if (countDown > 1) {
+            mainDiagnolConflicts++;
+        }
     }
-}
-
-const generateBoard = n => new Array(n).fill(0).map(x => Array(n).fill(0));
-
-const fillBoardRandomly = board => {
+    // vertDiagnolConflicts
     for (let i = 0; i < board.length; i++) {
-        board[i][Math.floor(Math.random() * board.length)] = 1;
+        let countUp = 0;
+        let countDown = 0;
+        for (let y = 0; y < board.length - i; y++) {
+            if (board[board.length - 1 - y][y + i] === 1) {
+                countUp++;
+            }
+            if (board[board.length - i - y - 1][y] === 1) {
+                countDown++;
+            }
+        }
+        if (countUp > 1) {
+            antiDiagnoalConflicts++;
+        }
+        if (countDown > 1) {
+            antiDiagnoalConflicts++;
+        }
     }
-    return board;
+    const conflictCounter = verticalConflicts + mainDiagnolConflicts + antiDiagnoalConflicts;
+    return conflictCounter;
 }
 
-const nQueen = n => {
-    const board = fillBoardRandomly(generateBoard(n));
-    findConflicts(board);
-    return;
+const recursiveSolution = (board, n) => {
+    let conflicts = conflictCounter(board);
+    if (conflicts === 0) {
+        return board;
+    }
+    for (let i = 0; i < board.length; i++) {
+        const freshRow = new Array(n).fill(0);
+        freshRow[Math.floor(Math.random() * n)] = 1;
+        const oldRow = board[i];
+        board[i] = freshRow;
+        const newTotalConflicts = conflictCounter(board);
+        if (newTotalConflicts > conflicts) {
+            board[i] = oldRow;
+        } else {
+            conflicts = newTotalConflicts;
+        }
+    }
+    totalMoves++;
+    if (totalMoves < 5000) {
+        return recursiveSolution(board, n);
+    }
+    return "No solution"
 }
 
-
-nQueen(10)
+const nQueens = n => {
+    const board = constructBoard(n);
+    return recursiveSolution(board, n);
+}
+console.log(nQueens(30));
