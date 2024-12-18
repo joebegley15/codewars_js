@@ -1,5 +1,17 @@
+const removeHttps = (url) => {
+    return url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+};
+
+const modifyLastElement = (arr) => {
+    const lastElement = arr[arr.length - 1];
+    const innerHTML = lastElement.match(/>(.*?)</)[0];
+    arr[arr.length - 1] = `<span class="active"${innerHTML}/span>`;
+    return arr;
+};
+
 const generateBC = (url, separator) => {
-    const crumb = url.split("/");
+    console.log(url);
+    const crumb = removeHttps(url).split("/");
     const elements = ['<a href="/">HOME</a>'];
     let currentLink = "";
     for (let i = 1; i < crumb.length; i++) {
@@ -7,7 +19,7 @@ const generateBC = (url, separator) => {
         currentLink += "/" + link;
         let nameArr = link.split("-");
         let name = nameArr.join(" ");
-        if (name.length > 30) {
+        if (link.split(/[.#?]/)[0].length > 30) {
             const words = ["the", "of", "in", "from", "by", "with", "and", "or", "for", "to", "at", "a"];
             name = nameArr.reduce((acc, el) => words.includes(el.toLowerCase()) ? acc : acc + el[0], "");
         }
@@ -21,8 +33,8 @@ const generateBC = (url, separator) => {
     }
     if (elements[elements.length - 1].includes(">INDEX<")) {
         elements.pop();
-        let activeName = elements[elements.length - 1].match(/>([^<]+)</g)[0];
-        elements[elements.length - 1] = `<span class="active"${activeName}/span>`;
     }
-    return elements.join(separator);
+    return modifyLastElement(elements).join(separator);
 }
+
+console.log(generateBC("agcpartners.co.uk/eurasian-and-bioengineering-bed-surfer-the-paper/most-viewed/funny.asp?rank=recent_first&hide=sold"))
